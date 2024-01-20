@@ -13,9 +13,13 @@
 		642FEDE42B5BB47500A88F7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE22B5BB47500A88F7C /* Main.storyboard */; };
 		642FEDE62B5BB47800A88F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE52B5BB47800A88F7C /* Assets.xcassets */; };
 		642FEDE92B5BB47800A88F7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE72B5BB47800A88F7C /* LaunchScreen.storyboard */; };
+		AF36247F467AEAABB8777ACA /* Pods_Bookify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0AD5F288EDB3163DFCCD04 /* Pods_Bookify.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00B0B61C5C31A8046467B921 /* Pods-Bookify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookify.debug.xcconfig"; path = "Target Support Files/Pods-Bookify/Pods-Bookify.debug.xcconfig"; sourceTree = "<group>"; };
+		0E0AD5F288EDB3163DFCCD04 /* Pods_Bookify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A3430669949C3B5681FA8A1 /* Pods-Bookify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookify.release.xcconfig"; path = "Target Support Files/Pods-Bookify/Pods-Bookify.release.xcconfig"; sourceTree = "<group>"; };
 		642FEDD92B5BB47500A88F7C /* Bookify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		642FEDDC2B5BB47500A88F7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		642FEDDE2B5BB47500A88F7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF36247F467AEAABB8777ACA /* Pods_Bookify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				642FEDDB2B5BB47500A88F7C /* Bookify */,
 				642FEDDA2B5BB47500A88F7C /* Products */,
+				D2F8A779105E2429184E709F /* Pods */,
+				B420F71338283285B765C3AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = Bookify;
 			sourceTree = "<group>";
 		};
+		B420F71338283285B765C3AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E0AD5F288EDB3163DFCCD04 /* Pods_Bookify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2F8A779105E2429184E709F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00B0B61C5C31A8046467B921 /* Pods-Bookify.debug.xcconfig */,
+				5A3430669949C3B5681FA8A1 /* Pods-Bookify.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 642FEDED2B5BB47800A88F7C /* Build configuration list for PBXNativeTarget "Bookify" */;
 			buildPhases = (
+				2BDD5FE625863CDFE1E84559 /* [CP] Check Pods Manifest.lock */,
 				642FEDD52B5BB47500A88F7C /* Sources */,
 				642FEDD62B5BB47500A88F7C /* Frameworks */,
 				642FEDD72B5BB47500A88F7C /* Resources */,
+				C7E7912A6E4520E110B1B03D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2BDD5FE625863CDFE1E84559 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bookify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7E7912A6E4520E110B1B03D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookify/Pods-Bookify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookify/Pods-Bookify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bookify/Pods-Bookify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		642FEDD52B5BB47500A88F7C /* Sources */ = {
@@ -287,6 +356,7 @@
 		};
 		642FEDEE2B5BB47800A88F7C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00B0B61C5C31A8046467B921 /* Pods-Bookify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -316,6 +386,7 @@
 		};
 		642FEDEF2B5BB47800A88F7C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A3430669949C3B5681FA8A1 /* Pods-Bookify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
