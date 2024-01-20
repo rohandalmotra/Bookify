@@ -63,15 +63,31 @@
 		642FEDDB2B5BB47500A88F7C /* Bookify */ = {
 			isa = PBXGroup;
 			children = (
-				642FEDDC2B5BB47500A88F7C /* AppDelegate.swift */,
-				642FEDDE2B5BB47500A88F7C /* SceneDelegate.swift */,
+				6456C11C2B5BC49900898E2C /* Common */,
+			);
+			path = Bookify;
+			sourceTree = "<group>";
+		};
+		6456C11B2B5BC48600898E2C /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
 				642FEDE02B5BB47500A88F7C /* BookifyHomeViewController.swift */,
 				642FEDE22B5BB47500A88F7C /* Main.storyboard */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		6456C11C2B5BC49900898E2C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				642FEDDC2B5BB47500A88F7C /* AppDelegate.swift */,
+				642FEDDE2B5BB47500A88F7C /* SceneDelegate.swift */,
 				642FEDE52B5BB47800A88F7C /* Assets.xcassets */,
 				642FEDE72B5BB47800A88F7C /* LaunchScreen.storyboard */,
 				642FEDEA2B5BB47800A88F7C /* Info.plist */,
+				6456C11B2B5BC48600898E2C /* HomeViewController */,
 			);
-			path = Bookify;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		B420F71338283285B765C3AD /* Frameworks */ = {
@@ -88,7 +104,6 @@
 				00B0B61C5C31A8046467B921 /* Pods-Bookify.debug.xcconfig */,
 				5A3430669949C3B5681FA8A1 /* Pods-Bookify.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
