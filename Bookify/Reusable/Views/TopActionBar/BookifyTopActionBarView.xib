@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BookifyTopActionBarView" customModule="Bookify" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="109"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUA-gj-6TJ">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="109"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlg-le-Rkf">
+                            <rect key="frame" x="32" y="39.666666666666664" width="30" height="29.999999999999993"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Bxx-fQ-BCL"/>
+                                <constraint firstAttribute="width" constant="30" id="jXj-d2-baf"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="dlg-le-Rkf" firstAttribute="centerY" secondItem="TUA-gj-6TJ" secondAttribute="centerY" id="GfU-fT-22R"/>
+                        <constraint firstItem="dlg-le-Rkf" firstAttribute="leading" secondItem="TUA-gj-6TJ" secondAttribute="leading" constant="32" id="i34-r7-tfa"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="TUA-gj-6TJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FRP-Zn-oCF"/>
+                <constraint firstItem="TUA-gj-6TJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="N1K-LC-LWJ"/>
+                <constraint firstAttribute="trailing" secondItem="TUA-gj-6TJ" secondAttribute="trailing" id="WpJ-ad-nbb"/>
+                <constraint firstAttribute="bottom" secondItem="TUA-gj-6TJ" secondAttribute="bottom" id="YQE-Uk-xSv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="actionButton" destination="dlg-le-Rkf" id="60C-IY-nmy"/>
+                <outlet property="cntView" destination="TUA-gj-6TJ" id="LsD-0a-kYN"/>
+            </connections>
+            <point key="canvasLocation" x="-63.358778625954194" y="281.33802816901408"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -6,11 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
 struct BookifyHeightWidthConstants{
     
     struct BookifyCommon{
         static let cornerRadiusOfRoundButton: CGFloat = 3
+        static let topActionBarHeight: CGFloat = 56
+        static let bottomSingleButtonViewHeight: CGFloat = 100
+        static let cornerRadiusOfCells: CGFloat = 16
+        static let cornerRadiusOfLabels: CGFloat = 8
+        static let locationSelectionCollectionViewWidth: CGFloat = UIScreen.main.bounds.width/2 - 32
+        static let locationSelectionCollectionViewHeight: CGFloat = locationSelectionCollectionViewWidth
     }
     
     struct BookifyHomeVCConstants{

@@ -8,23 +8,21 @@
 import Foundation
 
 struct BookifyRouter{
-    
+        
     struct ViewController{
-//        static func getOnboardingLocationSelectionBackroundVC(initialViewModel : PlayoOnboardingInitialViewModel) -> PlayoLocationScreenBackgroundVC {
-//            return PlayoLocationScreenBackgroundVC(viewModel: PlayoOnboardingRouter.ViewModel.getOnboardingStubHomeViewModel() , initialViewModel : initialViewModel)
-//        }
+        
+        static func getSelectLocationViewController() -> BookifySelectLocationViewController {
+            return BookifySelectLocationViewController(viewModel: ViewModel.getBookTicketViewModel())
+        }
         
     }
     
     struct ViewModel{
         
-//        static func getOnboardingHomeViewModel() -> PlayoOnboardingHomeViewModel{
-//            let moyaProvider = GenericDependencyManager.getMoyaProvider()
-//             //let moyaProvider = MoyaProvider<PlayoService>(stubClosure: MoyaProvider.immediatelyStub)
-//            let networkProvider = GenericDependencyManager.getNetworkServiceProvider()
-//            return PlayoOnboardingHomeViewModel(repositoryType: .Network, networkingType: networkProvider, provider: moyaProvider)
-//        }
-
+        static func getBookTicketViewModel() -> BookifyBookTicketViewModel{
+            return BookifyBookTicketViewModel()
+        }
+        
     }
 
 }

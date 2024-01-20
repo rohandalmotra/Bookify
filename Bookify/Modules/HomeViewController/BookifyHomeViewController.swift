@@ -63,9 +63,25 @@ extension BookifyHomeViewController{
     }
 }
 
-// MARK: - adding Functionality on clicks or taps
+// MARK: - Adding Functionality on clicks or taps
 extension BookifyHomeViewController{
     @objc func startButtonClicked() {
+        
+        let viewController = BookifyRouter.ViewController.getSelectLocationViewController()
+//        if let sheet = viewController.sheetPresentationController {
+//            if #available(iOS 16.0, *) {
+//                sheet.detents = [.custom{ _ in
+//                    return 400
+//                }]
+//            } else {
+//                sheet.detents = [.medium(), .large()]
+//            }
+//            
+//            sheet.preferredCornerRadius = 40
+//            sheet.prefersGrabberVisible = true
+//        }
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true, completion: nil)
         
     }
 }
