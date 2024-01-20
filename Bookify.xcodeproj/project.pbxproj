@@ -9,10 +9,23 @@
 /* Begin PBXBuildFile section */
 		642FEDDD2B5BB47500A88F7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642FEDDC2B5BB47500A88F7C /* AppDelegate.swift */; };
 		642FEDDF2B5BB47500A88F7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642FEDDE2B5BB47500A88F7C /* SceneDelegate.swift */; };
-		642FEDE12B5BB47500A88F7C /* BookifyHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642FEDE02B5BB47500A88F7C /* BookifyHomeViewController.swift */; };
 		642FEDE42B5BB47500A88F7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE22B5BB47500A88F7C /* Main.storyboard */; };
 		642FEDE62B5BB47800A88F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE52B5BB47800A88F7C /* Assets.xcassets */; };
 		642FEDE92B5BB47800A88F7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE72B5BB47800A88F7C /* LaunchScreen.storyboard */; };
+		6456C1222B5BCF2D00898E2C /* ColorPalletes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6456C1212B5BCF2D00898E2C /* ColorPalletes.xcassets */; };
+		6456C1242B5BCFE900898E2C /* BookifyHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1232B5BCFE900898E2C /* BookifyHomeViewController.swift */; };
+		6456C1292B5BD55B00898E2C /* BookifyHeightAndWidthConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1282B5BD55B00898E2C /* BookifyHeightAndWidthConstants.swift */; };
+		6456C12B2B5BD57A00898E2C /* BookifyStringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C12A2B5BD57A00898E2C /* BookifyStringConstants.swift */; };
+		6456C1322B5BD7CB00898E2C /* Figtree-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6456C1302B5BD7CB00898E2C /* Figtree-Medium.ttf */; };
+		6456C1332B5BD7CB00898E2C /* Figtree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6456C1312B5BD7CB00898E2C /* Figtree-Bold.ttf */; };
+		6456C1382B5BD97100898E2C /* BookifyFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1372B5BD97100898E2C /* BookifyFontExtension.swift */; };
+		6456C13A2B5BDCD000898E2C /* BookifyButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1392B5BDCD000898E2C /* BookifyButtonExtension.swift */; };
+		6456C1432B5BE43900898E2C /* BookifySelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1422B5BE43900898E2C /* BookifySelectLocationViewController.swift */; };
+		6456C1452B5BE45B00898E2C /* BookifySelectMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1442B5BE45B00898E2C /* BookifySelectMovieViewController.swift */; };
+		6456C1472B5BE47C00898E2C /* BookifySelectPeopleCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1462B5BE47C00898E2C /* BookifySelectPeopleCountViewController.swift */; };
+		6456C1492B5BE4B200898E2C /* BookifyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1482B5BE4B200898E2C /* BookifyRouter.swift */; };
+		6456C14B2B5BE55600898E2C /* BookifyBookTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C14A2B5BE55600898E2C /* BookifyBookTicketModel.swift */; };
+		6456C14D2B5BE68500898E2C /* BookifyBookTicketSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C14C2B5BE68500898E2C /* BookifyBookTicketSampleData.swift */; };
 		AF36247F467AEAABB8777ACA /* Pods_Bookify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0AD5F288EDB3163DFCCD04 /* Pods_Bookify.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,11 +36,24 @@
 		642FEDD92B5BB47500A88F7C /* Bookify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		642FEDDC2B5BB47500A88F7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		642FEDDE2B5BB47500A88F7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		642FEDE02B5BB47500A88F7C /* BookifyHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyHomeViewController.swift; sourceTree = "<group>"; };
 		642FEDE32B5BB47500A88F7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		642FEDE52B5BB47800A88F7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		642FEDE82B5BB47800A88F7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		642FEDEA2B5BB47800A88F7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6456C1212B5BCF2D00898E2C /* ColorPalletes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalletes.xcassets; sourceTree = "<group>"; };
+		6456C1232B5BCFE900898E2C /* BookifyHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookifyHomeViewController.swift; sourceTree = "<group>"; };
+		6456C1282B5BD55B00898E2C /* BookifyHeightAndWidthConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyHeightAndWidthConstants.swift; sourceTree = "<group>"; };
+		6456C12A2B5BD57A00898E2C /* BookifyStringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyStringConstants.swift; sourceTree = "<group>"; };
+		6456C1302B5BD7CB00898E2C /* Figtree-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-Medium.ttf"; sourceTree = "<group>"; };
+		6456C1312B5BD7CB00898E2C /* Figtree-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-Bold.ttf"; sourceTree = "<group>"; };
+		6456C1372B5BD97100898E2C /* BookifyFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyFontExtension.swift; sourceTree = "<group>"; };
+		6456C1392B5BDCD000898E2C /* BookifyButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyButtonExtension.swift; sourceTree = "<group>"; };
+		6456C1422B5BE43900898E2C /* BookifySelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifySelectLocationViewController.swift; sourceTree = "<group>"; };
+		6456C1442B5BE45B00898E2C /* BookifySelectMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifySelectMovieViewController.swift; sourceTree = "<group>"; };
+		6456C1462B5BE47C00898E2C /* BookifySelectPeopleCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifySelectPeopleCountViewController.swift; sourceTree = "<group>"; };
+		6456C1482B5BE4B200898E2C /* BookifyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyRouter.swift; sourceTree = "<group>"; };
+		6456C14A2B5BE55600898E2C /* BookifyBookTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyBookTicketModel.swift; sourceTree = "<group>"; };
+		6456C14C2B5BE68500898E2C /* BookifyBookTicketSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyBookTicketSampleData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +89,12 @@
 		642FEDDB2B5BB47500A88F7C /* Bookify */ = {
 			isa = PBXGroup;
 			children = (
+				642FEDEA2B5BB47800A88F7C /* Info.plist */,
 				6456C11C2B5BC49900898E2C /* Common */,
+				6456C1362B5BD93900898E2C /* Extensions */,
+				6456C12F2B5BD79D00898E2C /* Fonts */,
+				6456C1252B5BD51B00898E2C /* Constants */,
+				6456C13B2B5BE34800898E2C /* Modules */,
 			);
 			path = Bookify;
 			sourceTree = "<group>";
@@ -71,8 +102,8 @@
 		6456C11B2B5BC48600898E2C /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
-				642FEDE02B5BB47500A88F7C /* BookifyHomeViewController.swift */,
 				642FEDE22B5BB47500A88F7C /* Main.storyboard */,
+				6456C1232B5BCFE900898E2C /* BookifyHomeViewController.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -83,11 +114,115 @@
 				642FEDDC2B5BB47500A88F7C /* AppDelegate.swift */,
 				642FEDDE2B5BB47500A88F7C /* SceneDelegate.swift */,
 				642FEDE52B5BB47800A88F7C /* Assets.xcassets */,
+				6456C1212B5BCF2D00898E2C /* ColorPalletes.xcassets */,
 				642FEDE72B5BB47800A88F7C /* LaunchScreen.storyboard */,
-				642FEDEA2B5BB47800A88F7C /* Info.plist */,
-				6456C11B2B5BC48600898E2C /* HomeViewController */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		6456C1252B5BD51B00898E2C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1272B5BD53E00898E2C /* StringConstants */,
+				6456C1262B5BD52F00898E2C /* HeightAndWidthConstants */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		6456C1262B5BD52F00898E2C /* HeightAndWidthConstants */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1282B5BD55B00898E2C /* BookifyHeightAndWidthConstants.swift */,
+			);
+			path = HeightAndWidthConstants;
+			sourceTree = "<group>";
+		};
+		6456C1272B5BD53E00898E2C /* StringConstants */ = {
+			isa = PBXGroup;
+			children = (
+				6456C12A2B5BD57A00898E2C /* BookifyStringConstants.swift */,
+			);
+			path = StringConstants;
+			sourceTree = "<group>";
+		};
+		6456C12F2B5BD79D00898E2C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1312B5BD7CB00898E2C /* Figtree-Bold.ttf */,
+				6456C1302B5BD7CB00898E2C /* Figtree-Medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		6456C1362B5BD93900898E2C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1372B5BD97100898E2C /* BookifyFontExtension.swift */,
+				6456C1392B5BDCD000898E2C /* BookifyButtonExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6456C13B2B5BE34800898E2C /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				6456C13C2B5BE36F00898E2C /* BookTickets */,
+				6456C11B2B5BC48600898E2C /* HomeViewController */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		6456C13C2B5BE36F00898E2C /* BookTickets */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1402B5BE3CA00898E2C /* Router */,
+				6456C13F2B5BE38900898E2C /* Models */,
+				6456C13D2B5BE38100898E2C /* Views */,
+				6456C13E2B5BE38600898E2C /* ViewModels */,
+			);
+			path = BookTickets;
+			sourceTree = "<group>";
+		};
+		6456C13D2B5BE38100898E2C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1412B5BE3DA00898E2C /* ViewControllers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6456C13E2B5BE38600898E2C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6456C13F2B5BE38900898E2C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6456C14A2B5BE55600898E2C /* BookifyBookTicketModel.swift */,
+				6456C14C2B5BE68500898E2C /* BookifyBookTicketSampleData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6456C1402B5BE3CA00898E2C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1482B5BE4B200898E2C /* BookifyRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6456C1412B5BE3DA00898E2C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1422B5BE43900898E2C /* BookifySelectLocationViewController.swift */,
+				6456C1442B5BE45B00898E2C /* BookifySelectMovieViewController.swift */,
+				6456C1462B5BE47C00898E2C /* BookifySelectPeopleCountViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		B420F71338283285B765C3AD /* Frameworks */ = {
@@ -170,6 +305,9 @@
 				642FEDE92B5BB47800A88F7C /* LaunchScreen.storyboard in Resources */,
 				642FEDE62B5BB47800A88F7C /* Assets.xcassets in Resources */,
 				642FEDE42B5BB47500A88F7C /* Main.storyboard in Resources */,
+				6456C1222B5BCF2D00898E2C /* ColorPalletes.xcassets in Resources */,
+				6456C1332B5BD7CB00898E2C /* Figtree-Bold.ttf in Resources */,
+				6456C1322B5BD7CB00898E2C /* Figtree-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,9 +360,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				642FEDE12B5BB47500A88F7C /* BookifyHomeViewController.swift in Sources */,
+				6456C14B2B5BE55600898E2C /* BookifyBookTicketModel.swift in Sources */,
+				6456C14D2B5BE68500898E2C /* BookifyBookTicketSampleData.swift in Sources */,
+				6456C1242B5BCFE900898E2C /* BookifyHomeViewController.swift in Sources */,
+				6456C12B2B5BD57A00898E2C /* BookifyStringConstants.swift in Sources */,
+				6456C13A2B5BDCD000898E2C /* BookifyButtonExtension.swift in Sources */,
 				642FEDDD2B5BB47500A88F7C /* AppDelegate.swift in Sources */,
 				642FEDDF2B5BB47500A88F7C /* SceneDelegate.swift in Sources */,
+				6456C1292B5BD55B00898E2C /* BookifyHeightAndWidthConstants.swift in Sources */,
+				6456C1452B5BE45B00898E2C /* BookifySelectMovieViewController.swift in Sources */,
+				6456C1492B5BE4B200898E2C /* BookifyRouter.swift in Sources */,
+				6456C1382B5BD97100898E2C /* BookifyFontExtension.swift in Sources */,
+				6456C1432B5BE43900898E2C /* BookifySelectLocationViewController.swift in Sources */,
+				6456C1472B5BE47C00898E2C /* BookifySelectPeopleCountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +435,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -350,7 +498,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
