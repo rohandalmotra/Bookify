@@ -11,6 +11,10 @@ struct BookifyRouter{
         
     struct ViewController{
         
+        static func getHomeViewController() -> BookifyHomeViewController {
+            return BookifyHomeViewController()
+        }
+        
         static func getSelectLocationViewController() -> BookifySelectLocationViewController {
             return BookifySelectLocationViewController(viewModel: ViewModel.getBookTicketViewModel())
         }

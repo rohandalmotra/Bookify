@@ -24,8 +24,22 @@ class BookifyBookTicketViewModel{
     
     var numberOfPeopleAllowedData = BookifyNumberOfPeopleData(peopleCanJoin: [1,2,3,4,5,6,7,8,9,10])
     
+    //location VC
+    var selectedCityName: String?
+    var selectedCityImage: String?
+    var selectedCityIndex: Int? = 0
+    //movie VC
+    var selectedMovieName: String?
+    var selectedMovieImage: String?
+    var selectedMovieIndex: Int? = 0
+    var heightOfMovieSelectionVC: CGFloat = 0
+    //seat selection VC
+    var selectedNumberOfPeople: Int?
+    var selectedNumberOfPeopleIndex: Int? = 0
+    var heightOfPeopleSelectionVC: CGFloat = 0
     
-    var locationVCStateType: String? = "expandView"{
+    //MARK: - Location ViewController Data
+    var locationVCStateType: String? = BookifyStringConstants.expandView{
         didSet{
             NotificationCenter.default.post(name:  BookifyNotificationConstants.updateLocationSelectionTableView, object: nil)
         }
@@ -34,21 +48,18 @@ class BookifyBookTicketViewModel{
     var collapseLocationVC: Bool? = false{
         didSet{
             if collapseLocationVC ?? false{
-                locationVCStateType = "collapseView"
+                locationVCStateType = BookifyStringConstants.collapseView
             }
             else{
-                locationVCStateType = "expandView"
+                locationVCStateType = BookifyStringConstants.expandView
             }
         }
     }
     
     
-    var heightOfMovieSelectionVC: CGFloat = 0
-    var heightOfPeopleSelectionVC: CGFloat = 0
     
-    
-    
-    lazy var moviewSelectionVCStateType: String? = "expandView"{
+    //MARK: - Movie ViewController Data
+    lazy var moviewSelectionVCStateType: String? = BookifyStringConstants.expandView{
         didSet{
             NotificationCenter.default.post(name: BookifyNotificationConstants.updateMovieSelectionTableView, object: nil)
         }
@@ -57,29 +68,13 @@ class BookifyBookTicketViewModel{
     var collapseMovieSelectionVC: Bool? = false{
         didSet{
             if collapseMovieSelectionVC ?? false{
-                moviewSelectionVCStateType = "collapseView"
+                moviewSelectionVCStateType = BookifyStringConstants.collapseView
             }
             else{
-                moviewSelectionVCStateType = "expandView"
+                moviewSelectionVCStateType = BookifyStringConstants.expandView
             }
         }
     }
-    
-    var selectedCityName: String?
-    var selectedCityImage: String?
-    var selectedCityIndex: Int? = 0
-    var selectedMovieName: String?
-    var selectedMovieImage: String?
-    var selectedMovieIndex: Int? = 0
-    var selectedNumberOfPeople: Int?
-    var selectedNumberOfPeopleIndex: Int? = 0
-    
-   
-
-    
-    
-    
-    
-    
 
 }
+

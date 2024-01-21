@@ -7,16 +7,8 @@
 
 import UIKit
 
-protocol BookifySelectLocationDelegate: AnyObject{
-    func didTapOnLocation(cityName : String, cityImageName: String, selectedIndex: Int)
-}
-
-protocol BookifySelectMovieDelegate: AnyObject{
-    func didTapOnMovie(movieName : String, movieImageName: String, selectedIndex: Int)
-}
-
 class BookifySelectLocationTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cntView: UIView!
     
@@ -50,10 +42,10 @@ class BookifySelectLocationTableViewCell: UITableViewCell {
         //setting up UI
         setupUI()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -99,9 +91,8 @@ extension BookifySelectLocationTableViewCell{
 
 
 //MARK: - Setting collection view delegate and data source
-
 extension BookifySelectLocationTableViewCell: UICollectionViewDelegate,
-                                                    UICollectionViewDataSource{
+                                              UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if !(cityData?.isEmpty ?? true){
@@ -117,7 +108,7 @@ extension BookifySelectLocationTableViewCell: UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
-            let lCell = collectionView.dequeueReusableCell(withReuseIdentifier: BookifyImageWithTitleCollectionViewCell.identifier, for: indexPath) as! BookifyImageWithTitleCollectionViewCell
+        let lCell = collectionView.dequeueReusableCell(withReuseIdentifier: BookifyImageWithTitleCollectionViewCell.identifier, for: indexPath) as! BookifyImageWithTitleCollectionViewCell
         if !(cityData?.isEmpty ?? true){
             lCell.cityData = cityData?[indexPath.row]
         }
@@ -155,11 +146,11 @@ extension BookifySelectLocationTableViewCell: UICollectionViewDelegateFlowLayout
     
     // Distance Between Item Cells
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
+        return BookifyHeightWidthConstants.BookifyCommon.distanceBetweenCVCells
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        return UIEdgeInsets(top: 0, left: BookifyHeightWidthConstants.BookifyCommon.distanceBetweenCVCells, bottom: 0, right: BookifyHeightWidthConstants.BookifyCommon.distanceBetweenCVCells)
     }
     
 }

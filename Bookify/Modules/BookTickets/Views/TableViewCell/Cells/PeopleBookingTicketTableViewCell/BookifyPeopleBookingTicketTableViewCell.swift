@@ -7,15 +7,11 @@
 
 import UIKit
 
-protocol BookifyPeopleBookingTicketDelegate: AnyObject{
-    func didTapOnNumberOfPeople(numberOfPeople : Int, selectedIndex: Int)
-}
 
 class BookifyPeopleBookingTicketTableViewCell: UITableViewCell {
     @IBOutlet weak var cntView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     weak var delegate: BookifyPeopleBookingTicketDelegate?
-    
     var numberOfpeopleData: BookifyNumberOfPeopleData?
     
     var moveToIndex: Int?{
@@ -50,7 +46,6 @@ class BookifyPeopleBookingTicketTableViewCell: UITableViewCell {
 
 
 //MARK: - Setting up UI
-
 extension BookifyPeopleBookingTicketTableViewCell{
     private func setupUI(){
         //setting cell's UI
@@ -120,11 +115,11 @@ extension BookifyPeopleBookingTicketTableViewCell: UICollectionViewDelegateFlowL
     
     // Distance Between Item Cells
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
+        return BookifyHeightWidthConstants.BookifyCommon.distanceBetweenCVCells
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        return UIEdgeInsets(top: 0, left: BookifyHeightWidthConstants.BookifyCommon.distanceBetweenCVCells, bottom: 0, right: BookifyHeightWidthConstants.BookifyCommon.distanceBetweenCVCells)
     }
     
 }

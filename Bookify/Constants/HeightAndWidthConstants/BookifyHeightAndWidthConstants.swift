@@ -21,6 +21,8 @@ struct BookifyHeightWidthConstants{
         static let locationSelectionCollectionViewHeight: CGFloat = locationSelectionCollectionViewWidth
         
         static let peopleSelectionCVHeightWidht: CGFloat = 100
+        static let distanceBetweenCVCells: CGFloat = 16
+        static let distanceFromPreviousScreen: CGFloat = 100
     }
     
     struct BookifyHomeVCConstants{

@@ -57,7 +57,6 @@ class BookifyImageWithTitleCollectionViewCell: UICollectionViewCell {
 
 
 //MARK: - Setting up UI
-
 extension BookifyImageWithTitleCollectionViewCell{
     private func setupUI(){
         //setting cell's UI
@@ -76,9 +75,8 @@ extension BookifyImageWithTitleCollectionViewCell{
 
 
 // MARK: - Setting UI of the Objects
-
 extension BookifyImageWithTitleCollectionViewCell{
-    
+
     //setting cell's UI
     private func setupCellUI(){
         self.backgroundColor = .clear
@@ -93,6 +91,7 @@ extension BookifyImageWithTitleCollectionViewCell{
         blurView.roundViewCorners([.layerMaxXMaxYCorner, .layerMaxXMinYCorner], radius: 4)
         blurView.roundViewCorners([.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], radius: BookifyHeightWidthConstants.BookifyCommon.cornerRadiusOfLabels)
     }
+    
     //setting title on image label
     private func setupTitleLabel(){
         titleLabel.font = UIFont().BookifyMediumFont(BookifyFontSize.small.rawValue)
@@ -118,7 +117,6 @@ extension BookifyImageWithTitleCollectionViewCell{
 }
 
 // MARK: - Updating UI
-
 extension BookifyImageWithTitleCollectionViewCell{
     
     //updating UI for location VC
@@ -159,7 +157,7 @@ extension BookifyImageWithTitleCollectionViewCell{
         titleLabel.text = text ?? ""
     }
     
-    //updating title label
+    //updating recommended label
     private func updateRecommendedLabel(isRecommended: Bool?){
         if isRecommended ?? false{
             recommendedLabel.isHidden = false

@@ -55,6 +55,6 @@ extension BookifyBottomSingleButtonView{
 extension BookifyBottomSingleButtonView{
     //updating action button
     public func updateActionButtonTitle(title: String?){
-        actionButton.setTitle(title ?? "Proceed Furthur", for: .normal)
+        actionButton.setTitle(title ?? "", for: .normal)
     }
 }
