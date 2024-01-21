@@ -13,7 +13,7 @@ class BookifyBookTicketViewModel{
                     BookifyCityData(cityName: "Punjab", cityImage: "AmritsarCityImage"),
                     BookifyCityData(cityName: "Delhi", cityImage: "DelhiCityImage"),
                     BookifyCityData(cityName: "Hyderabad", cityImage: "HyderabadCityImage"),
-                    BookifyCityData(cityName: "Bangalore", cityImage: "MumbaiCityImage")]
+                    BookifyCityData(cityName: "Bangalore", cityImage: "BangaloreCityImage")]
     
     var movieData = [BookifyMovieData(movieName: "Aquaman", movieImage: "AquamanMovieImage", isNewlyReleased: true),
                      BookifyMovieData(movieName: "Carry On Jatta", movieImage: "CarryOnJattaMovieImage", isNewlyReleased: false),
