@@ -19,7 +19,14 @@ class BookifyImageWithTitleCollectionViewCell: UICollectionViewCell {
     var cityData: BookifyCityData?{
         didSet{
             guard let cityDataResponse = cityData else{return}
-            updateUIForLocationScreen(cityData: cityDataResponse)
+            updateUIForLocationVC(cityData: cityDataResponse)
+        }
+    }
+    
+    var movieData: BookifyMovieData?{
+        didSet{
+            guard let movieDataResponse = movieData else{return}
+            updateUIForMovieVC(movieData: movieDataResponse)
         }
     }
     
@@ -44,7 +51,6 @@ class BookifyImageWithTitleCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         backgroundImageView.image = nil
         titleLabel.text = nil
-        recommendedLabel.text = nil
     }
 
 }
@@ -100,12 +106,13 @@ extension BookifyImageWithTitleCollectionViewCell{
     
     //setting recommended label
     private func setupRecommendedLabel(){
-        recommendedLabel.font = UIFont().BookifyMediumFont(BookifyFontSize.extraLarge.rawValue)
+        recommendedLabel.font = UIFont().BookifyMediumFont(BookifyFontSize.extraSmall.rawValue)
         recommendedLabel.textColor = .bookifyPrimary
         recommendedLabel.backgroundColor = .bookifySecondary
         recommendedLabel.text = "  Newly Launched  "
         recommendedLabel.isHidden = true
         recommendedLabel.layer.cornerRadius = BookifyHeightWidthConstants.BookifyCommon.cornerRadiusOfLabels
+        recommendedLabel.clipsToBounds = true
     }
     
 }
@@ -114,14 +121,25 @@ extension BookifyImageWithTitleCollectionViewCell{
 
 extension BookifyImageWithTitleCollectionViewCell{
     
-    //updating background Image
-    private func updateUIForLocationScreen(cityData: BookifyCityData?){
+    //updating UI for location VC
+    private func updateUIForLocationVC(cityData: BookifyCityData?){
         //updating background Image
         updateBackgroundImage(imageName: cityData?.cityImage)
         //updating title label
         updateTitleLabel(text: cityData?.cityName)
         //updating recommended label
         updateRecommendedLabel(isRecommended: false)
+        
+    }
+    
+    //updating UI for movie VC
+    private func updateUIForMovieVC(movieData: BookifyMovieData?){
+        //updating background Image
+        updateBackgroundImage(imageName: movieData?.movieImage)
+        //updating title label
+        updateTitleLabel(text: movieData?.movieName)
+        //updating recommended label
+        updateRecommendedLabel(isRecommended: movieData?.isNewlyReleased)
         
     }
     

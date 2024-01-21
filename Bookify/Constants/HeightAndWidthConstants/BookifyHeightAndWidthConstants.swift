@@ -19,6 +19,8 @@ struct BookifyHeightWidthConstants{
         static let cornerRadiusOfLabels: CGFloat = 8
         static let locationSelectionCollectionViewWidth: CGFloat = UIScreen.main.bounds.width/2 - 32
         static let locationSelectionCollectionViewHeight: CGFloat = locationSelectionCollectionViewWidth
+        
+        static let peopleSelectionCVHeightWidht: CGFloat = 100
     }
     
     struct BookifyHomeVCConstants{

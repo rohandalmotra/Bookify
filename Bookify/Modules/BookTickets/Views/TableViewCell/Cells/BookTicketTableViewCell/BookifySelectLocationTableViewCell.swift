@@ -8,11 +8,11 @@
 import UIKit
 
 protocol BookifySelectLocationDelegate: AnyObject{
-    func didTapOnLocation(cityName : String)
+    func didTapOnLocation(cityName : String, cityImageName: String, selectedIndex: Int)
 }
 
 protocol BookifySelectMovieDelegate: AnyObject{
-    func didTapOnMovie(movieName : String)
+    func didTapOnMovie(movieName : String, movieImageName: String, selectedIndex: Int)
 }
 
 class BookifySelectLocationTableViewCell: UITableViewCell {
@@ -22,15 +22,20 @@ class BookifySelectLocationTableViewCell: UITableViewCell {
     
     weak var locationSelectionDelegate: BookifySelectLocationDelegate?
     weak var movieSelectionDelegate: BookifySelectMovieDelegate?
-    var cityData: [BookifyCityData]?{
+    var cityData: [BookifyCityData]?
+    var movieData: [BookifyMovieData]?
+    
+    var moveToIndex: Int?{
         didSet{
-            DispatchQueue.main.async{
-                self.collectionView.reloadData()
-                if !(self.cityData?.isEmpty ?? false){
-                    let indexPathToSelect = IndexPath(item: 0, section: 0)
-                    self.collectionView.selectItem(at: indexPathToSelect, animated: true, scrollPosition: .centeredHorizontally)
-
-                }
+            if !(self.movieData?.isEmpty ?? true){
+                let indexPathToSelect = IndexPath(item: moveToIndex ?? 0, section: 0)
+                self.collectionView.selectItem(at: indexPathToSelect, animated: true, scrollPosition: .centeredHorizontally)
+                self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: indexPathToSelect)
+            }
+            if !(self.cityData?.isEmpty ?? true){
+                let indexPathToSelect = IndexPath(item: moveToIndex ?? 0, section: 0)
+                self.collectionView.selectItem(at: indexPathToSelect, animated: true, scrollPosition: .centeredHorizontally)
+                self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: indexPathToSelect)
             }
         }
     }
@@ -99,20 +104,42 @@ extension BookifySelectLocationTableViewCell: UICollectionViewDelegate,
                                                     UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cityData?.count ?? 0
+        if !(cityData?.isEmpty ?? true){
+            return cityData?.count ?? 0
+        }
+        if !(movieData?.isEmpty ?? true){
+            return movieData?.count ?? 0
+        }
+        else{
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
             let lCell = collectionView.dequeueReusableCell(withReuseIdentifier: BookifyImageWithTitleCollectionViewCell.identifier, for: indexPath) as! BookifyImageWithTitleCollectionViewCell
-        lCell.cityData = cityData?[indexPath.row]
+        if !(cityData?.isEmpty ?? true){
+            lCell.cityData = cityData?[indexPath.row]
+        }
+        if !(movieData?.isEmpty ?? true){
+            lCell.movieData = movieData?[indexPath.row]
+        }
+        
+        
         cell = lCell
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cityName = cityData?[indexPath.row].cityName{
-            locationSelectionDelegate?.didTapOnLocation(cityName: cityName)
+        if !(cityData?.isEmpty ?? true){
+            if let cityName = cityData?[indexPath.row].cityName, let cityImage = cityData?[indexPath.row].cityImage{
+                locationSelectionDelegate?.didTapOnLocation(cityName: cityName, cityImageName: cityImage, selectedIndex: indexPath.row)
+            }
+        }
+        if !(movieData?.isEmpty ?? true){
+            if let movieName = movieData?[indexPath.row].movieName, let movieImage = movieData?[indexPath.row].movieImage{
+                movieSelectionDelegate?.didTapOnMovie(movieName: movieName, movieImageName: movieImage, selectedIndex: indexPath.row)
+            }
         }
     }
     
@@ -123,7 +150,7 @@ extension BookifySelectLocationTableViewCell: UICollectionViewDelegate,
 extension BookifySelectLocationTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: BookifyHeightWidthConstants.BookifyCommon.locationSelectionCollectionViewWidth, height: collectionView.frame.height)
+        return CGSize(width: BookifyHeightWidthConstants.BookifyCommon.locationSelectionCollectionViewWidth, height: BookifyHeightWidthConstants.BookifyCommon.locationSelectionCollectionViewWidth)
     }
     
     // Distance Between Item Cells

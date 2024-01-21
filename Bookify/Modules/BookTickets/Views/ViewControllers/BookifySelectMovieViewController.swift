@@ -6,17 +6,15 @@
 //
 
 import UIKit
-import HGPlaceholders
 
 class BookifySelectMovieViewController: UIViewController {
-
+    
     var viewModel: BookifyBookTicketViewModel?
-    private let tableView = TableView(frame: CGRect.zero, style: .grouped)
+    private let tableView = UITableView(frame: CGRect.zero, style: .grouped)
     private let bottomSingleButton: BookifyBottomSingleButtonView = .fromNib()
     private let dropDownButtonBar: BookifyDropdrownButtonBarView = .fromNib()
     private let containerView = UIView()
     let slideInPresentManager = BookifySlideInPresentationManager()
-    lazy private var selectedMovieText: String? = ""
     
     private init() {
         super.init(nibName: nil, bundle: nil)
@@ -36,7 +34,16 @@ class BookifySelectMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    deinit{
+        viewModel?.selectedMovieImage = nil
+        clearAllObservables()
+    }
+    
+    private func clearAllObservables() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 }
 
 
@@ -64,6 +71,9 @@ extension BookifySelectMovieViewController{
         
         //registering cells for tableView
         registerCell()
+        
+        //setting observer for tableView reload
+        setupObserver()
         
     }
 }
@@ -141,10 +151,6 @@ extension BookifySelectMovieViewController{
         tableView.roundViewCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: BookifyHeightWidthConstants.BookifyCommon.cornerRadiusOfOuterView)
         tableView.clipsToBounds = true
         tableView.showsVerticalScrollIndicator = false
-        tableView.showLoadingPlaceholder()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            self.tableView.showDefault()
-        }
     }
     
     func addTableViewConstraints() {
@@ -165,9 +171,25 @@ extension BookifySelectMovieViewController{
         let nib1 = UINib(nibName: BookifyTitleWithSubtitleHeaderCell.identifier, bundle: nil)
         tableView.register(nib1, forHeaderFooterViewReuseIdentifier: BookifyTitleWithSubtitleHeaderCell.identifier)
         
+        
+        let nib2 = UINib(nibName: BookifyTitleWithImageHeaderCell.identifier, bundle: nil)
+        tableView.register(nib2, forHeaderFooterViewReuseIdentifier: BookifyTitleWithImageHeaderCell.identifier)
+        
+        
     }
     
 }
+
+// MARK: - Setting observer for tableView reload
+extension BookifySelectMovieViewController{
+    func setupObserver(){
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadTableView),
+                                               name:BookifyNotificationConstants.updateMovieSelectionTableView,
+                                               object: nil)
+    }
+}
+
 
 
 // MARK: - TableView delegates and datasources
@@ -195,17 +217,18 @@ extension BookifySelectMovieViewController: UITableViewDelegate, UITableViewData
         switch stateType{
         case .expandView:
             let headerCell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: BookifyTitleWithSubtitleHeaderCell.identifier) as! BookifyTitleWithSubtitleHeaderCell
-            headerCell.updateUI(titleText: "Location", subtitleText: "Please select location where you want to do booking")
+            headerCell.updateUI(titleText: "Which Movie?", subtitleText: "Please select the movie you want to watch")
             headerView = headerCell
         case .collapseView:
-            let headerCell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: BookifyTitleWithSubtitleHeaderCell.identifier) as! BookifyTitleWithSubtitleHeaderCell
-            headerCell.updateUI(titleText: selectedMovieText, subtitleText: "")
+            let headerCell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: BookifyTitleWithImageHeaderCell.identifier) as! BookifyTitleWithImageHeaderCell
+            headerCell.updateUI(titleText: viewModel?.selectedMovieName, iconImage: viewModel?.selectedMovieImage)
+            headerView = headerCell
             headerView = headerCell
         case .none:
             print("")
         }
-           
-       
+        
+        
         return headerView
     }
     
@@ -231,11 +254,12 @@ extension BookifySelectMovieViewController: UITableViewDelegate, UITableViewData
         switch stateType{
         case .expandView:
             let lCell = tableView.dequeueReusableCell(withIdentifier: BookifySelectLocationTableViewCell.identifier, for: indexPath) as! BookifySelectLocationTableViewCell
-            lCell.cityData = viewModel?.cityData
-//            lCell.delegate = self
+            lCell.movieSelectionDelegate = self
+            lCell.movieData = viewModel?.movieData
+            lCell.moveToIndex = viewModel?.selectedMovieIndex
             cell = lCell
         case .collapseView, .none:
-           print("")
+            print("")
         }
         cell.selectionStyle = .none
         return cell
@@ -243,18 +267,18 @@ extension BookifySelectMovieViewController: UITableViewDelegate, UITableViewData
     
     //setting height of the row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    
+        
         let stateType = BookifyScreenState(rawValue: viewModel?.moviewSelectionVCStateType ?? "collapseView")
         switch stateType{
         case .expandView:
             return BookifyHeightWidthConstants.BookifyCommon.locationSelectionCollectionViewHeight
         case .collapseView, .none:
             return 0
-
+            
         }
     }
     
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let stateType = BookifyScreenState(rawValue: viewModel?.moviewSelectionVCStateType ?? "collapseView")
@@ -269,20 +293,23 @@ extension BookifySelectMovieViewController: UITableViewDelegate, UITableViewData
 // MARK: - Adding Functionality on clicks or taps
 extension BookifySelectMovieViewController{
     
+    @objc func reloadTableView(){
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     @objc private func dropdownButtonPressed(){
         dismissViewController()
         
     }
     
     @objc private func bottomActionButtonPressed(){
-        tableView.showLoadingPlaceholder()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            self.tableView.reloadData()
-            self.tableView.showDefault()
-        }
         
+        
+        viewModel?.collapseMovieSelectionVC = true
         viewModel?.heightOfPeopleSelectionVC = self.tableView.frame.height - 100
-
+        
         if let viewModel = self.viewModel{
             let viewController = BookifyRouter.ViewController.getSelectPeopleCountViewController(viewModel: viewModel)
             presentWithSlideInTransition(viewController: viewController)
@@ -303,13 +330,15 @@ extension BookifySelectMovieViewController{
         viewController.modalPresentationStyle = .custom
         present(viewController, animated: true, completion: nil)
     }
-
+    
 }
 
 
-extension BookifySelectMovieViewController: BookifySelectLocationDelegate {
-    func didTapOnLocation(cityName: String) {
-        self.selectedMovieText = cityName
+extension BookifySelectMovieViewController: BookifySelectMovieDelegate {
+    func didTapOnMovie(movieName: String, movieImageName: String, selectedIndex: Int) {
+        viewModel?.selectedMovieName = movieName
+        viewModel?.selectedMovieImage = movieImageName
+        viewModel?.selectedMovieIndex = selectedIndex
     }
 }
 

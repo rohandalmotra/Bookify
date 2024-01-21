@@ -1,20 +1,16 @@
 PODS:
-  - HGPlaceholders (0.5.0)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
-  - HGPlaceholders
   - SnapKit
 
 SPEC REPOS:
   trunk:
-    - HGPlaceholders
     - SnapKit
 
 SPEC CHECKSUMS:
-  HGPlaceholders: cbf8caed8360fc2ab5e8a4610cce61f76fbd2c37
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: a463d86b4bda5261cca9161bc665cbe0883a788e
+PODFILE CHECKSUM: 7ed22564e7845127dee99170a0b5c3af5148a3ed
 
 COCOAPODS: 1.14.3

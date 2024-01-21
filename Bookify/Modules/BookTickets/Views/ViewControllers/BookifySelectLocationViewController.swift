@@ -6,14 +6,12 @@
 //
 
 import UIKit
-import HGPlaceholders
 
 class BookifySelectLocationViewController: UIViewController {
     var viewModel: BookifyBookTicketViewModel?
-    private let tableView = TableView(frame: CGRect.zero, style: .grouped)
+    private let tableView = UITableView(frame: CGRect.zero, style: .grouped)
     private let topActionBar: BookifyTopActionBarView = .fromNib()
     private let bottomSingleButton: BookifyBottomSingleButtonView = .fromNib()
-    lazy private var selectedLocationText: String? = ""
     let slideInPresentManager = BookifySlideInPresentationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +27,7 @@ class BookifySelectLocationViewController: UIViewController {
     convenience init(viewModel: BookifyBookTicketViewModel) {
         self.init()
         self.viewModel = viewModel
-        self.viewModel?.collapseLocationVC = false
+        //        self.viewModel?.collapseLocationVC = false
         setupUI()
     }
     
@@ -37,21 +35,17 @@ class BookifySelectLocationViewController: UIViewController {
         fatalError("fatalError")
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        if self.viewModel?.collapseLocationScreen == false{
-//            self.viewModel?.collapseLocationScreen = false
-//            self.tableView.reloadData()
-//        }
-//    }
+    deinit{
+        clearAllObservables()
+    }
     
     
-//    private func clearAllObservables() {
-//        viewModel = nil
-//        // MARK: - Code Review For Rohan
-//        // 1. Make observable nil
-//        NotificationCenter.default.removeObserver(self)
-//    }
-
+    private func clearAllObservables() {
+        
+        viewModel = nil
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 }
 
 
@@ -73,6 +67,9 @@ extension BookifySelectLocationViewController{
         
         //registering cells for tableView
         registerCell()
+        
+        //setting observer for tableView reload
+        setupObserver()
         
     }
 }
@@ -126,8 +123,6 @@ extension BookifySelectLocationViewController{
         tableView.roundViewCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: BookifyHeightWidthConstants.BookifyCommon.cornerRadiusOfOuterView)
         tableView.clipsToBounds = true
         tableView.showsVerticalScrollIndicator = false
-        tableView.showLoadingPlaceholder()
-        tableView.showDefault()
     }
     
     func addTableViewConstraints() {
@@ -150,9 +145,26 @@ extension BookifySelectLocationViewController{
         let nib1 = UINib(nibName: BookifyTitleWithSubtitleHeaderCell.identifier, bundle: nil)
         tableView.register(nib1, forHeaderFooterViewReuseIdentifier: BookifyTitleWithSubtitleHeaderCell.identifier)
         
+        let nib2 = UINib(nibName: BookifyTitleWithImageHeaderCell.identifier, bundle: nil)
+        tableView.register(nib2, forHeaderFooterViewReuseIdentifier: BookifyTitleWithImageHeaderCell.identifier)
+        
+        
+        
     }
     
 }
+
+
+// MARK: - Setting observer for tableView reload
+extension BookifySelectLocationViewController{
+    func setupObserver(){
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadTableView),
+                                               name: BookifyNotificationConstants.updateLocationSelectionTableView,
+                                               object: nil)
+    }
+}
+
 
 
 // MARK: - TableView delegates and datasources
@@ -180,17 +192,19 @@ extension BookifySelectLocationViewController: UITableViewDelegate, UITableViewD
         switch stateType{
         case .expandView:
             let headerCell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: BookifyTitleWithSubtitleHeaderCell.identifier) as! BookifyTitleWithSubtitleHeaderCell
-            headerCell.updateUI(titleText: "Location", subtitleText: "Please select location where you want to do booking")
+            headerCell.updateUI(titleText: "Select Location", subtitleText: 
+                                    "Please select the location where you want to make a booking.")
             headerView = headerCell
         case .collapseView:
-            let headerCell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: BookifyTitleWithSubtitleHeaderCell.identifier) as! BookifyTitleWithSubtitleHeaderCell
-            headerCell.updateUI(titleText: selectedLocationText, subtitleText: "")
+            let headerCell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: BookifyTitleWithImageHeaderCell.identifier) as! BookifyTitleWithImageHeaderCell
+            headerCell.updateUI(titleText: viewModel?.selectedCityName, iconImage: viewModel?.selectedCityImage)
+            print("this is from header", viewModel?.selectedCityName, viewModel?.selectedCityImage)
             headerView = headerCell
         case .none:
             print("")
         }
-           
-    
+        
+        
         return headerView
     }
     
@@ -216,11 +230,12 @@ extension BookifySelectLocationViewController: UITableViewDelegate, UITableViewD
         switch stateType{
         case .expandView:
             let lCell = tableView.dequeueReusableCell(withIdentifier: BookifySelectLocationTableViewCell.identifier, for: indexPath) as! BookifySelectLocationTableViewCell
-            lCell.cityData = viewModel?.cityData
             lCell.locationSelectionDelegate = self
+            lCell.cityData = viewModel?.cityData
+            lCell.moveToIndex = viewModel?.selectedCityIndex
             cell = lCell
         case .collapseView, .none:
-           print("")
+            print("")
         }
         cell.selectionStyle = .none
         return cell
@@ -228,18 +243,18 @@ extension BookifySelectLocationViewController: UITableViewDelegate, UITableViewD
     
     //setting height of the row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    
+        
         let stateType = BookifyScreenState(rawValue: viewModel?.locationVCStateType ?? "collapseView")
         switch stateType{
         case .expandView:
             return BookifyHeightWidthConstants.BookifyCommon.locationSelectionCollectionViewHeight
         case .collapseView, .none:
             return 0
-
+            
         }
     }
     
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let stateType = BookifyScreenState(rawValue: viewModel?.locationVCStateType ?? "collapseView")
@@ -255,6 +270,13 @@ extension BookifySelectLocationViewController: UITableViewDelegate, UITableViewD
 // MARK: - Adding Functionality on clicks or taps
 extension BookifySelectLocationViewController{
     
+    
+    @objc func reloadTableView(){
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     @objc private func actionButtonPressed(){
         dismissViewController()
         
@@ -263,14 +285,8 @@ extension BookifySelectLocationViewController{
     @objc private func bottomActionButtonPressed(){
         
         viewModel?.collapseLocationVC = true
-        tableView.showLoadingPlaceholder()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            self.tableView.reloadData()
-            self.tableView.showDefault()
-        }
-        
         viewModel?.heightOfMovieSelectionVC = self.tableView.frame.height - 100
-
+        
         if let viewModel = self.viewModel{
             let viewController = BookifyRouter.ViewController.getSelectMovieViewController(viewModel: viewModel)
             presentWithSlideInTransition(viewController: viewController)
@@ -291,12 +307,15 @@ extension BookifySelectLocationViewController{
         viewController.modalPresentationStyle = .custom
         present(viewController, animated: true, completion: nil)
     }
-
+    
 }
 
 
 extension BookifySelectLocationViewController: BookifySelectLocationDelegate {
-    func didTapOnLocation(cityName: String) {
-        self.selectedLocationText = cityName
+    func didTapOnLocation(cityName: String, cityImageName: String, selectedIndex: Int) {
+        print("this is from didTapOnLocation", viewModel?.selectedCityName, viewModel?.selectedCityImage,cityName,cityImageName)
+        viewModel?.selectedCityName = cityName
+        viewModel?.selectedCityImage = cityImageName
+        viewModel?.selectedCityIndex = selectedIndex
     }
 }

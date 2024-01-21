@@ -6,12 +6,11 @@
 //
 
 import UIKit
-import HGPlaceholders
 
 class BookifySelectPeopleCountViewController: UIViewController {
-
+    
     var viewModel: BookifyBookTicketViewModel?
-    private let tableView = TableView(frame: CGRect.zero, style: .grouped)
+    private let tableView = UITableView(frame: CGRect.zero, style: .grouped)
     private let bottomSingleButton: BookifyBottomSingleButtonView = .fromNib()
     private let dropDownButtonBar: BookifyDropdrownButtonBarView = .fromNib()
     private let containerView = UIView()
@@ -35,7 +34,7 @@ class BookifySelectPeopleCountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
 }
 
 
@@ -139,10 +138,6 @@ extension BookifySelectPeopleCountViewController{
         tableView.roundViewCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: BookifyHeightWidthConstants.BookifyCommon.cornerRadiusOfOuterView)
         tableView.clipsToBounds = true
         tableView.showsVerticalScrollIndicator = false
-        tableView.showLoadingPlaceholder()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            self.tableView.showDefault()
-        }
     }
     
     func addTableViewConstraints() {
@@ -157,8 +152,8 @@ extension BookifySelectPeopleCountViewController{
 extension BookifySelectPeopleCountViewController{
     func registerCell(){
         
-        let nib0 = UINib(nibName: BookifySelectLocationTableViewCell.identifier, bundle: nil)
-        tableView.register(nib0, forCellReuseIdentifier: BookifySelectLocationTableViewCell.identifier)
+        let nib0 = UINib(nibName: BookifyPeopleBookingTicketTableViewCell.identifier, bundle: nil)
+        tableView.register(nib0, forCellReuseIdentifier: BookifyPeopleBookingTicketTableViewCell.identifier)
         
         let nib1 = UINib(nibName: BookifyTitleWithSubtitleHeaderCell.identifier, bundle: nil)
         tableView.register(nib1, forHeaderFooterViewReuseIdentifier: BookifyTitleWithSubtitleHeaderCell.identifier)
@@ -175,14 +170,14 @@ extension BookifySelectPeopleCountViewController: UITableViewDelegate, UITableVi
     
     // Setting up number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
     
     // Setting up headers for cells
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var headerView = UIView()
         let headerCell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: BookifyTitleWithSubtitleHeaderCell.identifier) as! BookifyTitleWithSubtitleHeaderCell
-        headerCell.updateUI(titleText: "Location", subtitleText: "Please select location where you want to do booking")
+        headerCell.updateUI(titleText: "How Many Seats?", subtitleText: "Select the number of seats you want to book.")
         headerView = headerCell
         return headerView
     }
@@ -196,9 +191,9 @@ extension BookifySelectPeopleCountViewController: UITableViewDelegate, UITableVi
     // Setting up cells for row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
-        let lCell = tableView.dequeueReusableCell(withIdentifier: BookifySelectLocationTableViewCell.identifier, for: indexPath) as! BookifySelectLocationTableViewCell
-        lCell.cityData = viewModel?.cityData
-//        lCell.delegate = self
+        let lCell = tableView.dequeueReusableCell(withIdentifier: BookifyPeopleBookingTicketTableViewCell.identifier, for: indexPath) as! BookifyPeopleBookingTicketTableViewCell
+        lCell.delegate = self
+        lCell.numberOfpeopleData = viewModel?.numberOfPeopleAllowedData
         cell = lCell
         cell.selectionStyle = .none
         return cell
@@ -206,10 +201,10 @@ extension BookifySelectPeopleCountViewController: UITableViewDelegate, UITableVi
     
     //setting height of the row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return BookifyHeightWidthConstants.BookifyCommon.locationSelectionCollectionViewHeight
+        return BookifyHeightWidthConstants.BookifyCommon.peopleSelectionCVHeightWidht
     }
     
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("")
     }
@@ -221,16 +216,16 @@ extension BookifySelectPeopleCountViewController{
     
     @objc private func dropdownButtonPressed(){
         dismissViewController()
-        
     }
     
     @objc private func bottomActionButtonPressed(){
-       
-    
+        
+        
         
     }
     
     private func dismissViewController(){
+        viewModel?.collapseMovieSelectionVC = false
         self.dismiss(animated: true)
     }
     
@@ -243,13 +238,14 @@ extension BookifySelectPeopleCountViewController{
         viewController.modalPresentationStyle = .custom
         present(viewController, animated: true, completion: nil)
     }
-
+    
 }
 
 
-extension BookifySelectPeopleCountViewController: BookifySelectLocationDelegate {
-    func didTapOnLocation(cityName: String) {
-        self.selectedMovieText = cityName
+extension BookifySelectPeopleCountViewController: BookifyPeopleBookingTicketDelegate {
+    func didTapOnNumberOfPeople(numberOfPeople: Int, selectedIndex: Int) {
+        viewModel?.selectedNumberOfPeople = numberOfPeople
+        viewModel?.selectedNumberOfPeopleIndex = selectedIndex
     }
 }
 
