@@ -37,7 +37,7 @@ extension BookifyBottomSingleButtonView{
     //setting view UI
     private func setupViewUI(){
         self.backgroundColor = .clear
-        self.cntView.backgroundColor = .bookifyPrimary
+        self.cntView.backgroundColor = .bookifyBackground
         self.cntView.roundViewCorners([.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: BookifyHeightWidthConstants.BookifyCommon.cornerRadiusOfCells)
         self.cntView.layer.cornerCurve = .continuous
         

@@ -15,6 +15,14 @@ struct BookifyRouter{
             return BookifySelectLocationViewController(viewModel: ViewModel.getBookTicketViewModel())
         }
         
+        static func getSelectMovieViewController(viewModel: BookifyBookTicketViewModel) -> BookifySelectMovieViewController {
+            return BookifySelectMovieViewController(viewModel: viewModel)
+        }
+        
+        static func getSelectPeopleCountViewController(viewModel: BookifyBookTicketViewModel) -> BookifySelectPeopleCountViewController {
+            return BookifySelectPeopleCountViewController(viewModel: viewModel)
+        }
+        
     }
     
     struct ViewModel{

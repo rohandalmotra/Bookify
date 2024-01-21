@@ -7,17 +7,8 @@
 
 import Foundation
 
-// MARK: - Creating enum for Book ticket
-enum BookifyBookTicketViewsSections: CaseIterable{
-    
+// MARK: - Creating enum for Book ticket screens states
+enum BookifyScreenState: String {
     case expandView
     case collapseView
-    static func numberOfSections() -> Int{
-        return self.allCases.count
-    }
-    
-    static func getSection(_ section: Int) -> BookifyBookTicketViewsSections{
-        return self.allCases[section]
-    }
 }
-

@@ -11,9 +11,10 @@ import HGPlaceholders
 class BookifySelectLocationViewController: UIViewController {
     var viewModel: BookifyBookTicketViewModel?
     private let tableView = TableView(frame: CGRect.zero, style: .grouped)
-    var topActionBar: BookifyTopActionBarView = .fromNib()
-    var bottomSingleButton: BookifyBottomSingleButtonView = .fromNib()
-    var selectedLocationText: String?
+    private let topActionBar: BookifyTopActionBarView = .fromNib()
+    private let bottomSingleButton: BookifyBottomSingleButtonView = .fromNib()
+    lazy private var selectedLocationText: String? = ""
+    let slideInPresentManager = BookifySlideInPresentationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .bookifyBackground
@@ -28,13 +29,21 @@ class BookifySelectLocationViewController: UIViewController {
     convenience init(viewModel: BookifyBookTicketViewModel) {
         self.init()
         self.viewModel = viewModel
-//        fetchAllData()
+        self.viewModel?.collapseLocationVC = false
         setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("fatalError")
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        if self.viewModel?.collapseLocationScreen == false{
+//            self.viewModel?.collapseLocationScreen = false
+//            self.tableView.reloadData()
+//        }
+//    }
+    
     
 //    private func clearAllObservables() {
 //        viewModel = nil
@@ -54,13 +63,13 @@ extension BookifySelectLocationViewController{
         setupTopActionBar()
         addTopActionBarConstraints()
         
-        //setting bottom single button
-        setupBottomSingleButton()
-        addBottomSingleButtonConstraints()
-        
         //setting tableView
         setupTableView()
         addTableViewConstraints()
+        
+        //setting bottom single button
+        setupBottomSingleButton()
+        addBottomSingleButtonConstraints()
         
         //registering cells for tableView
         registerCell()
@@ -80,7 +89,7 @@ extension BookifySelectLocationViewController{
     private func addTopActionBarConstraints() {
         topActionBar.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(BookifyHeightWidthConstants.BookifyCommon.topActionBarHeight)
+            make.height.equalTo(BookifyHeightWidthConstants.BookifyCommon.topBarHeight)
         }
     }
 }
@@ -109,24 +118,23 @@ extension BookifySelectLocationViewController{
 extension BookifySelectLocationViewController{
     
     private func setupTableView() {
+        view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .bookifyPrimary
         tableView.separatorStyle = .none
-        view.addSubview(tableView)
-        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -20, right: 0)
+        tableView.roundViewCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: BookifyHeightWidthConstants.BookifyCommon.cornerRadiusOfOuterView)
+        tableView.clipsToBounds = true
         tableView.showsVerticalScrollIndicator = false
         tableView.showLoadingPlaceholder()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            self.tableView.showDefault()
-        }
+        tableView.showDefault()
     }
     
     func addTableViewConstraints() {
         tableView.snp.makeConstraints { (make) in
             make.left.right.equalTo(view.safeAreaLayoutGuide)
             make.top.equalTo(topActionBar.snp.bottom)
-            make.bottom.equalTo(bottomSingleButton.snp.top)
+            make.bottom.equalToSuperview()
         }
     }
 }
@@ -151,18 +159,16 @@ extension BookifySelectLocationViewController{
 
 extension BookifySelectLocationViewController: UITableViewDelegate, UITableViewDataSource{
     
-    // Setting up number of sections
-    func numberOfSections(in tableView:UITableView) -> Int {
-        return BookifyBookTicketViewsSections.numberOfSections()
-    }
     
     // Setting up number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sections = BookifyBookTicketViewsSections.getSection(section)
-        switch sections{
+        let stateType = BookifyScreenState(rawValue: viewModel?.locationVCStateType ?? "collapseView")
+        switch stateType{
         case .expandView:
             return 1
         case .collapseView:
+            return 0
+        case .none:
             return 0
         }
     }
@@ -170,8 +176,8 @@ extension BookifySelectLocationViewController: UITableViewDelegate, UITableViewD
     // Setting up headers for cells
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var headerView = UIView()
-        let sections = BookifyBookTicketViewsSections.getSection(section)
-        switch sections{
+        let stateType = BookifyScreenState(rawValue: viewModel?.locationVCStateType ?? "collapseView")
+        switch stateType{
         case .expandView:
             let headerCell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: BookifyTitleWithSubtitleHeaderCell.identifier) as! BookifyTitleWithSubtitleHeaderCell
             headerCell.updateUI(titleText: "Location", subtitleText: "Please select location where you want to do booking")
@@ -180,20 +186,24 @@ extension BookifySelectLocationViewController: UITableViewDelegate, UITableViewD
             let headerCell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: BookifyTitleWithSubtitleHeaderCell.identifier) as! BookifyTitleWithSubtitleHeaderCell
             headerCell.updateUI(titleText: selectedLocationText, subtitleText: "")
             headerView = headerCell
+        case .none:
+            print("")
         }
            
-       
+    
         return headerView
     }
     
     //Setting height for headers
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let sections = BookifyBookTicketViewsSections.getSection(section)
-        switch sections{
+        let stateType = BookifyScreenState(rawValue: viewModel?.locationVCStateType ?? "collapseView")
+        switch stateType{
         case .expandView:
             return UITableView.automaticDimension
         case .collapseView:
             return UITableView.automaticDimension
+        case .none:
+            return 0
         }
     }
     
@@ -202,14 +212,14 @@ extension BookifySelectLocationViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
-        let sections = BookifyBookTicketViewsSections.getSection(indexPath.section)
-        switch sections{
+        let stateType = BookifyScreenState(rawValue: viewModel?.locationVCStateType ?? "collapseView")
+        switch stateType{
         case .expandView:
             let lCell = tableView.dequeueReusableCell(withIdentifier: BookifySelectLocationTableViewCell.identifier, for: indexPath) as! BookifySelectLocationTableViewCell
             lCell.cityData = viewModel?.cityData
-            lCell.delegate = self
+            lCell.locationSelectionDelegate = self
             cell = lCell
-        case .collapseView:
+        case .collapseView, .none:
            print("")
         }
         cell.selectionStyle = .none
@@ -219,23 +229,22 @@ extension BookifySelectLocationViewController: UITableViewDelegate, UITableViewD
     //setting height of the row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
-        let sections = BookifyBookTicketViewsSections.getSection(indexPath.section)
-        switch sections{
+        let stateType = BookifyScreenState(rawValue: viewModel?.locationVCStateType ?? "collapseView")
+        switch stateType{
         case .expandView:
             return BookifyHeightWidthConstants.BookifyCommon.locationSelectionCollectionViewHeight
-        case .collapseView:
+        case .collapseView, .none:
             return 0
+
         }
     }
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let sections = BookifyBookTicketViewsSections.getSection(indexPath.section)
-        switch sections{
-        case .expandView:
-            print("")
-        case .collapseView:
+        let stateType = BookifyScreenState(rawValue: viewModel?.locationVCStateType ?? "collapseView")
+        switch stateType{
+        case .expandView, .collapseView, .none:
             print("")
         }
     }
@@ -252,12 +261,35 @@ extension BookifySelectLocationViewController{
     }
     
     @objc private func bottomActionButtonPressed(){
-       
+        
+        viewModel?.collapseLocationVC = true
+        tableView.showLoadingPlaceholder()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            self.tableView.reloadData()
+            self.tableView.showDefault()
+        }
+        
+        viewModel?.heightOfMovieSelectionVC = self.tableView.frame.height - 100
+
+        if let viewModel = self.viewModel{
+            let viewController = BookifyRouter.ViewController.getSelectMovieViewController(viewModel: viewModel)
+            presentWithSlideInTransition(viewController: viewController)
+        }
         
     }
     
     private func dismissViewController(){
         self.dismiss(animated: true)
+    }
+    
+    //presenting view controller
+    func presentWithSlideInTransition(viewController: UIViewController, _ doTransform: Bool = true){
+        slideInPresentManager.disableCompactHeight = true
+        slideInPresentManager.direction = .bottom
+        slideInPresentManager.doTransform = doTransform
+        viewController.transitioningDelegate = slideInPresentManager
+        viewController.modalPresentationStyle = .custom
+        present(viewController, animated: true, completion: nil)
     }
 
 }

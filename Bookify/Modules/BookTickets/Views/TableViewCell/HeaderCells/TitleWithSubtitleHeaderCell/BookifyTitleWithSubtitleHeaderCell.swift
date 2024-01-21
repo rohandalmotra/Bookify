@@ -50,7 +50,7 @@ extension BookifyTitleWithSubtitleHeaderCell{
 extension BookifyTitleWithSubtitleHeaderCell{
     private func setupTitleLabel(){
         titleLabel.textColor = .bookifySecondary
-        titleLabel.font = UIFont().BookifyBoldFont(BookifyFontSize.medium.rawValue)
+        titleLabel.font = UIFont().BookifyMediumFont(BookifyFontSize.medium.rawValue)
     }
 }
 

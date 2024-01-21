@@ -11,13 +11,17 @@ protocol BookifySelectLocationDelegate: AnyObject{
     func didTapOnLocation(cityName : String)
 }
 
+protocol BookifySelectMovieDelegate: AnyObject{
+    func didTapOnMovie(movieName : String)
+}
+
 class BookifySelectLocationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cntView: UIView!
     
-    weak var delegate: BookifySelectLocationDelegate?
-    
+    weak var locationSelectionDelegate: BookifySelectLocationDelegate?
+    weak var movieSelectionDelegate: BookifySelectMovieDelegate?
     var cityData: [BookifyCityData]?{
         didSet{
             DispatchQueue.main.async{
@@ -107,7 +111,9 @@ extension BookifySelectLocationTableViewCell: UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didTapOnLocation(cityName: cityData?[indexPath.row].cityName ?? "Error Occured")
+        if let cityName = cityData?[indexPath.row].cityName{
+            locationSelectionDelegate?.didTapOnLocation(cityName: cityName)
+        }
     }
     
 }

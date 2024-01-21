@@ -3,4 +3,54 @@
    uuid = "9057A23F-B20B-493C-9AB3-A8989AA71ED9"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "36223148-8C62-46DF-A081-95E1725A740D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bookify/Reusable/Views/TransitionViewController/BookifyTransitionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "36223148-8C62-46DF-A081-95E1725A740D - b62baeccc504ac8e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bookify.BookifyTransitionViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Bookify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/techmash/Desktop/Bookify/Bookify/Reusable/Views/TransitionViewController/BookifyTransitionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "496">
+               </Location>
+               <Location
+                  uuid = "36223148-8C62-46DF-A081-95E1725A740D - b62baeccc504acaf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bookify.BookifyTransitionViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Bookify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/techmash/Desktop/Bookify/Bookify/Reusable/Views/TransitionViewController/BookifyTransitionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
