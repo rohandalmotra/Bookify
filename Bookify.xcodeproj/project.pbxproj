@@ -12,6 +12,9 @@
 		642FEDE42B5BB47500A88F7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE22B5BB47500A88F7C /* Main.storyboard */; };
 		642FEDE62B5BB47800A88F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE52B5BB47800A88F7C /* Assets.xcassets */; };
 		642FEDE92B5BB47800A88F7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE72B5BB47800A88F7C /* LaunchScreen.storyboard */; };
+		6431850D2B5D6433005BBF30 /* BookifyContractors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6431850C2B5D6433005BBF30 /* BookifyContractors.swift */; };
+		644CA0282B5CF93800D03438 /* BookifyDropdrownButtonBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644CA0272B5CF93800D03438 /* BookifyDropdrownButtonBarView.swift */; };
+		644CA02A2B5CF93F00D03438 /* BookifyDropdrownButtonBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644CA0292B5CF93F00D03438 /* BookifyDropdrownButtonBarView.xib */; };
 		6456C1222B5BCF2D00898E2C /* ColorPalletes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6456C1212B5BCF2D00898E2C /* ColorPalletes.xcassets */; };
 		6456C1242B5BCFE900898E2C /* BookifyHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1232B5BCFE900898E2C /* BookifyHomeViewController.swift */; };
 		6456C1292B5BD55B00898E2C /* BookifyHeightAndWidthConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1282B5BD55B00898E2C /* BookifyHeightAndWidthConstants.swift */; };
@@ -25,7 +28,29 @@
 		6456C1472B5BE47C00898E2C /* BookifySelectPeopleCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1462B5BE47C00898E2C /* BookifySelectPeopleCountViewController.swift */; };
 		6456C1492B5BE4B200898E2C /* BookifyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1482B5BE4B200898E2C /* BookifyRouter.swift */; };
 		6456C14B2B5BE55600898E2C /* BookifyBookTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C14A2B5BE55600898E2C /* BookifyBookTicketModel.swift */; };
-		6456C14D2B5BE68500898E2C /* BookifyBookTicketSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C14C2B5BE68500898E2C /* BookifyBookTicketSampleData.swift */; };
+		6456C14F2B5BEC4B00898E2C /* BookifyBookTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C14E2B5BEC4B00898E2C /* BookifyBookTicketViewModel.swift */; };
+		6456C1562B5BEFFC00898E2C /* BookifyBottomSingleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1552B5BEFFC00898E2C /* BookifyBottomSingleButtonView.swift */; };
+		6456C1582B5BF00500898E2C /* BookifyBottomSingleButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6456C1572B5BF00500898E2C /* BookifyBottomSingleButtonView.xib */; };
+		6456C15B2B5BFA6C00898E2C /* BookifyTopActionBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C15A2B5BFA6C00898E2C /* BookifyTopActionBarView.swift */; };
+		6456C15D2B5BFA7300898E2C /* BookifyTopActionBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6456C15C2B5BFA7300898E2C /* BookifyTopActionBarView.xib */; };
+		6456C15F2B5BFBA800898E2C /* BookifyViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C15E2B5BFBA800898E2C /* BookifyViewExtension.swift */; };
+		6456C1642B5BFEE800898E2C /* BookifyTitleWithSubtitleHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1622B5BFEE800898E2C /* BookifyTitleWithSubtitleHeaderCell.swift */; };
+		6456C1652B5BFEE800898E2C /* BookifyTitleWithSubtitleHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6456C1632B5BFEE800898E2C /* BookifyTitleWithSubtitleHeaderCell.xib */; };
+		6456C1702B5C06F800898E2C /* BookifyImageWithTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C16E2B5C06F800898E2C /* BookifyImageWithTitleCollectionViewCell.swift */; };
+		6456C1712B5C06F800898E2C /* BookifyImageWithTitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6456C16F2B5C06F800898E2C /* BookifyImageWithTitleCollectionViewCell.xib */; };
+		6456C1742B5C0A6800898E2C /* BookifyEnumConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456C1732B5C0A6800898E2C /* BookifyEnumConstants.swift */; };
+		6487BA552B5D10FF008F7F14 /* BookifySlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487BA522B5D10FF008F7F14 /* BookifySlideInPresentationAnimator.swift */; };
+		6487BA562B5D10FF008F7F14 /* BookifySlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487BA532B5D10FF008F7F14 /* BookifySlideInPresentationManager.swift */; };
+		6487BA572B5D10FF008F7F14 /* BookifySlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487BA542B5D10FF008F7F14 /* BookifySlideInPresentationController.swift */; };
+		6487BA5A2B5D3066008F7F14 /* BookifyNotificationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487BA592B5D3066008F7F14 /* BookifyNotificationConstants.swift */; };
+		6487BA5E2B5D3700008F7F14 /* BookifyTitleWithImageHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487BA5C2B5D3700008F7F14 /* BookifyTitleWithImageHeaderCell.swift */; };
+		6487BA5F2B5D3700008F7F14 /* BookifyTitleWithImageHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6487BA5D2B5D3700008F7F14 /* BookifyTitleWithImageHeaderCell.xib */; };
+		6487BA632B5D3A2C008F7F14 /* BookifyPeopleBookingTicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487BA612B5D3A2C008F7F14 /* BookifyPeopleBookingTicketTableViewCell.swift */; };
+		6487BA642B5D3A2C008F7F14 /* BookifyPeopleBookingTicketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6487BA622B5D3A2C008F7F14 /* BookifyPeopleBookingTicketTableViewCell.xib */; };
+		6487BA682B5D3A7E008F7F14 /* BookifyCentreLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6487BA662B5D3A7E008F7F14 /* BookifyCentreLabelCollectionViewCell.swift */; };
+		6487BA692B5D3A7E008F7F14 /* BookifyCentreLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6487BA672B5D3A7E008F7F14 /* BookifyCentreLabelCollectionViewCell.xib */; };
+		64C9F7902B5C1FE30012C49F /* BookifySelectLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C9F78E2B5C1FE30012C49F /* BookifySelectLocationTableViewCell.swift */; };
+		64C9F7912B5C1FE30012C49F /* BookifySelectLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C9F78F2B5C1FE30012C49F /* BookifySelectLocationTableViewCell.xib */; };
 		AF36247F467AEAABB8777ACA /* Pods_Bookify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0AD5F288EDB3163DFCCD04 /* Pods_Bookify.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +65,9 @@
 		642FEDE52B5BB47800A88F7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		642FEDE82B5BB47800A88F7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		642FEDEA2B5BB47800A88F7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6431850C2B5D6433005BBF30 /* BookifyContractors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyContractors.swift; sourceTree = "<group>"; };
+		644CA0272B5CF93800D03438 /* BookifyDropdrownButtonBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyDropdrownButtonBarView.swift; sourceTree = "<group>"; };
+		644CA0292B5CF93F00D03438 /* BookifyDropdrownButtonBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookifyDropdrownButtonBarView.xib; sourceTree = "<group>"; };
 		6456C1212B5BCF2D00898E2C /* ColorPalletes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalletes.xcassets; sourceTree = "<group>"; };
 		6456C1232B5BCFE900898E2C /* BookifyHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookifyHomeViewController.swift; sourceTree = "<group>"; };
 		6456C1282B5BD55B00898E2C /* BookifyHeightAndWidthConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyHeightAndWidthConstants.swift; sourceTree = "<group>"; };
@@ -53,7 +81,29 @@
 		6456C1462B5BE47C00898E2C /* BookifySelectPeopleCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifySelectPeopleCountViewController.swift; sourceTree = "<group>"; };
 		6456C1482B5BE4B200898E2C /* BookifyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyRouter.swift; sourceTree = "<group>"; };
 		6456C14A2B5BE55600898E2C /* BookifyBookTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyBookTicketModel.swift; sourceTree = "<group>"; };
-		6456C14C2B5BE68500898E2C /* BookifyBookTicketSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyBookTicketSampleData.swift; sourceTree = "<group>"; };
+		6456C14E2B5BEC4B00898E2C /* BookifyBookTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyBookTicketViewModel.swift; sourceTree = "<group>"; };
+		6456C1552B5BEFFC00898E2C /* BookifyBottomSingleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyBottomSingleButtonView.swift; sourceTree = "<group>"; };
+		6456C1572B5BF00500898E2C /* BookifyBottomSingleButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookifyBottomSingleButtonView.xib; sourceTree = "<group>"; };
+		6456C15A2B5BFA6C00898E2C /* BookifyTopActionBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyTopActionBarView.swift; sourceTree = "<group>"; };
+		6456C15C2B5BFA7300898E2C /* BookifyTopActionBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookifyTopActionBarView.xib; sourceTree = "<group>"; };
+		6456C15E2B5BFBA800898E2C /* BookifyViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyViewExtension.swift; sourceTree = "<group>"; };
+		6456C1622B5BFEE800898E2C /* BookifyTitleWithSubtitleHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyTitleWithSubtitleHeaderCell.swift; sourceTree = "<group>"; };
+		6456C1632B5BFEE800898E2C /* BookifyTitleWithSubtitleHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookifyTitleWithSubtitleHeaderCell.xib; sourceTree = "<group>"; };
+		6456C16E2B5C06F800898E2C /* BookifyImageWithTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyImageWithTitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		6456C16F2B5C06F800898E2C /* BookifyImageWithTitleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookifyImageWithTitleCollectionViewCell.xib; sourceTree = "<group>"; };
+		6456C1732B5C0A6800898E2C /* BookifyEnumConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyEnumConstants.swift; sourceTree = "<group>"; };
+		6487BA522B5D10FF008F7F14 /* BookifySlideInPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookifySlideInPresentationAnimator.swift; sourceTree = "<group>"; };
+		6487BA532B5D10FF008F7F14 /* BookifySlideInPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookifySlideInPresentationManager.swift; sourceTree = "<group>"; };
+		6487BA542B5D10FF008F7F14 /* BookifySlideInPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookifySlideInPresentationController.swift; sourceTree = "<group>"; };
+		6487BA592B5D3066008F7F14 /* BookifyNotificationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyNotificationConstants.swift; sourceTree = "<group>"; };
+		6487BA5C2B5D3700008F7F14 /* BookifyTitleWithImageHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyTitleWithImageHeaderCell.swift; sourceTree = "<group>"; };
+		6487BA5D2B5D3700008F7F14 /* BookifyTitleWithImageHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookifyTitleWithImageHeaderCell.xib; sourceTree = "<group>"; };
+		6487BA612B5D3A2C008F7F14 /* BookifyPeopleBookingTicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyPeopleBookingTicketTableViewCell.swift; sourceTree = "<group>"; };
+		6487BA622B5D3A2C008F7F14 /* BookifyPeopleBookingTicketTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookifyPeopleBookingTicketTableViewCell.xib; sourceTree = "<group>"; };
+		6487BA662B5D3A7E008F7F14 /* BookifyCentreLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyCentreLabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		6487BA672B5D3A7E008F7F14 /* BookifyCentreLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookifyCentreLabelCollectionViewCell.xib; sourceTree = "<group>"; };
+		64C9F78E2B5C1FE30012C49F /* BookifySelectLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifySelectLocationTableViewCell.swift; sourceTree = "<group>"; };
+		64C9F78F2B5C1FE30012C49F /* BookifySelectLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookifySelectLocationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +144,28 @@
 				6456C1362B5BD93900898E2C /* Extensions */,
 				6456C12F2B5BD79D00898E2C /* Fonts */,
 				6456C1252B5BD51B00898E2C /* Constants */,
+				6456C1502B5BEF9200898E2C /* Reusable */,
+				6456C11B2B5BC48600898E2C /* HomeViewController */,
 				6456C13B2B5BE34800898E2C /* Modules */,
 			);
 			path = Bookify;
+			sourceTree = "<group>";
+		};
+		6431850B2B5D640D005BBF30 /* Contractor */ = {
+			isa = PBXGroup;
+			children = (
+				6431850C2B5D6433005BBF30 /* BookifyContractors.swift */,
+			);
+			path = Contractor;
+			sourceTree = "<group>";
+		};
+		644CA0262B5CF90800D03438 /* DropDownButtonBar */ = {
+			isa = PBXGroup;
+			children = (
+				644CA0292B5CF93F00D03438 /* BookifyDropdrownButtonBarView.xib */,
+				644CA0272B5CF93800D03438 /* BookifyDropdrownButtonBarView.swift */,
+			);
+			path = DropDownButtonBar;
 			sourceTree = "<group>";
 		};
 		6456C11B2B5BC48600898E2C /* HomeViewController */ = {
@@ -123,6 +192,8 @@
 		6456C1252B5BD51B00898E2C /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				6487BA582B5D3040008F7F14 /* Notifications */,
+				6456C1722B5C0A5A00898E2C /* EnumConstants */,
 				6456C1272B5BD53E00898E2C /* StringConstants */,
 				6456C1262B5BD52F00898E2C /* HeightAndWidthConstants */,
 			);
@@ -159,6 +230,7 @@
 			children = (
 				6456C1372B5BD97100898E2C /* BookifyFontExtension.swift */,
 				6456C1392B5BDCD000898E2C /* BookifyButtonExtension.swift */,
+				6456C15E2B5BFBA800898E2C /* BookifyViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -167,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				6456C13C2B5BE36F00898E2C /* BookTickets */,
-				6456C11B2B5BC48600898E2C /* HomeViewController */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -175,6 +246,7 @@
 		6456C13C2B5BE36F00898E2C /* BookTickets */ = {
 			isa = PBXGroup;
 			children = (
+				6431850B2B5D640D005BBF30 /* Contractor */,
 				6456C1402B5BE3CA00898E2C /* Router */,
 				6456C13F2B5BE38900898E2C /* Models */,
 				6456C13D2B5BE38100898E2C /* Views */,
@@ -186,6 +258,8 @@
 		6456C13D2B5BE38100898E2C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6456C1512B5BEF9F00898E2C /* TableViewCell */,
+				6456C1522B5BEFAB00898E2C /* CollectionViewCell */,
 				6456C1412B5BE3DA00898E2C /* ViewControllers */,
 			);
 			path = Views;
@@ -194,6 +268,7 @@
 		6456C13E2B5BE38600898E2C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6456C14E2B5BEC4B00898E2C /* BookifyBookTicketViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -202,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				6456C14A2B5BE55600898E2C /* BookifyBookTicketModel.swift */,
-				6456C14C2B5BE68500898E2C /* BookifyBookTicketSampleData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +297,159 @@
 				6456C1462B5BE47C00898E2C /* BookifySelectPeopleCountViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6456C1502B5BEF9200898E2C /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1532B5BEFB600898E2C /* Views */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		6456C1512B5BEF9F00898E2C /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1662B5C058700898E2C /* HeaderCells */,
+				6456C1672B5C059C00898E2C /* Cells */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		6456C1522B5BEFAB00898E2C /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6487BA652B5D3A39008F7F14 /* CenterLabelCollectionViewCell */,
+				6456C16D2B5C06B400898E2C /* ImageWithTitleCollectionViewCell */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		6456C1532B5BEFB600898E2C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6487BA512B5D10FF008F7F14 /* PresentationController */,
+				644CA0262B5CF90800D03438 /* DropDownButtonBar */,
+				6456C1592B5BFA4500898E2C /* TopActionBar */,
+				6456C1542B5BEFBC00898E2C /* BottomSingleButton */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6456C1542B5BEFBC00898E2C /* BottomSingleButton */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1572B5BF00500898E2C /* BookifyBottomSingleButtonView.xib */,
+				6456C1552B5BEFFC00898E2C /* BookifyBottomSingleButtonView.swift */,
+			);
+			path = BottomSingleButton;
+			sourceTree = "<group>";
+		};
+		6456C1592B5BFA4500898E2C /* TopActionBar */ = {
+			isa = PBXGroup;
+			children = (
+				6456C15C2B5BFA7300898E2C /* BookifyTopActionBarView.xib */,
+				6456C15A2B5BFA6C00898E2C /* BookifyTopActionBarView.swift */,
+			);
+			path = TopActionBar;
+			sourceTree = "<group>";
+		};
+		6456C1602B5BFE8D00898E2C /* TitleWithSubtitleHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1632B5BFEE800898E2C /* BookifyTitleWithSubtitleHeaderCell.xib */,
+				6456C1622B5BFEE800898E2C /* BookifyTitleWithSubtitleHeaderCell.swift */,
+			);
+			path = TitleWithSubtitleHeaderCell;
+			sourceTree = "<group>";
+		};
+		6456C1662B5C058700898E2C /* HeaderCells */ = {
+			isa = PBXGroup;
+			children = (
+				6487BA5B2B5D36CB008F7F14 /* TitleWithImageHeaderCell */,
+				6456C1602B5BFE8D00898E2C /* TitleWithSubtitleHeaderCell */,
+			);
+			path = HeaderCells;
+			sourceTree = "<group>";
+		};
+		6456C1672B5C059C00898E2C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6487BA602B5D39EF008F7F14 /* PeopleBookingTicketTableViewCell */,
+				64C9F78D2B5C1FAE0012C49F /* BookTicketTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		6456C16D2B5C06B400898E2C /* ImageWithTitleCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6456C16F2B5C06F800898E2C /* BookifyImageWithTitleCollectionViewCell.xib */,
+				6456C16E2B5C06F800898E2C /* BookifyImageWithTitleCollectionViewCell.swift */,
+			);
+			path = ImageWithTitleCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		6456C1722B5C0A5A00898E2C /* EnumConstants */ = {
+			isa = PBXGroup;
+			children = (
+				6456C1732B5C0A6800898E2C /* BookifyEnumConstants.swift */,
+			);
+			path = EnumConstants;
+			sourceTree = "<group>";
+		};
+		6487BA512B5D10FF008F7F14 /* PresentationController */ = {
+			isa = PBXGroup;
+			children = (
+				6487BA522B5D10FF008F7F14 /* BookifySlideInPresentationAnimator.swift */,
+				6487BA532B5D10FF008F7F14 /* BookifySlideInPresentationManager.swift */,
+				6487BA542B5D10FF008F7F14 /* BookifySlideInPresentationController.swift */,
+			);
+			path = PresentationController;
+			sourceTree = "<group>";
+		};
+		6487BA582B5D3040008F7F14 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				6487BA592B5D3066008F7F14 /* BookifyNotificationConstants.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		6487BA5B2B5D36CB008F7F14 /* TitleWithImageHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				6487BA5D2B5D3700008F7F14 /* BookifyTitleWithImageHeaderCell.xib */,
+				6487BA5C2B5D3700008F7F14 /* BookifyTitleWithImageHeaderCell.swift */,
+			);
+			path = TitleWithImageHeaderCell;
+			sourceTree = "<group>";
+		};
+		6487BA602B5D39EF008F7F14 /* PeopleBookingTicketTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6487BA622B5D3A2C008F7F14 /* BookifyPeopleBookingTicketTableViewCell.xib */,
+				6487BA612B5D3A2C008F7F14 /* BookifyPeopleBookingTicketTableViewCell.swift */,
+			);
+			path = PeopleBookingTicketTableViewCell;
+			sourceTree = "<group>";
+		};
+		6487BA652B5D3A39008F7F14 /* CenterLabelCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6487BA672B5D3A7E008F7F14 /* BookifyCentreLabelCollectionViewCell.xib */,
+				6487BA662B5D3A7E008F7F14 /* BookifyCentreLabelCollectionViewCell.swift */,
+			);
+			path = CenterLabelCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		64C9F78D2B5C1FAE0012C49F /* BookTicketTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				64C9F78F2B5C1FE30012C49F /* BookifySelectLocationTableViewCell.xib */,
+				64C9F78E2B5C1FE30012C49F /* BookifySelectLocationTableViewCell.swift */,
+			);
+			path = BookTicketTableViewCell;
 			sourceTree = "<group>";
 		};
 		B420F71338283285B765C3AD /* Frameworks */ = {
@@ -302,11 +529,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				644CA02A2B5CF93F00D03438 /* BookifyDropdrownButtonBarView.xib in Resources */,
+				6487BA692B5D3A7E008F7F14 /* BookifyCentreLabelCollectionViewCell.xib in Resources */,
+				6456C1712B5C06F800898E2C /* BookifyImageWithTitleCollectionViewCell.xib in Resources */,
+				6456C15D2B5BFA7300898E2C /* BookifyTopActionBarView.xib in Resources */,
 				642FEDE92B5BB47800A88F7C /* LaunchScreen.storyboard in Resources */,
+				64C9F7912B5C1FE30012C49F /* BookifySelectLocationTableViewCell.xib in Resources */,
 				642FEDE62B5BB47800A88F7C /* Assets.xcassets in Resources */,
+				6487BA5F2B5D3700008F7F14 /* BookifyTitleWithImageHeaderCell.xib in Resources */,
 				642FEDE42B5BB47500A88F7C /* Main.storyboard in Resources */,
+				6456C1582B5BF00500898E2C /* BookifyBottomSingleButtonView.xib in Resources */,
 				6456C1222B5BCF2D00898E2C /* ColorPalletes.xcassets in Resources */,
+				6487BA642B5D3A2C008F7F14 /* BookifyPeopleBookingTicketTableViewCell.xib in Resources */,
 				6456C1332B5BD7CB00898E2C /* Figtree-Bold.ttf in Resources */,
+				6456C1652B5BFEE800898E2C /* BookifyTitleWithSubtitleHeaderCell.xib in Resources */,
 				6456C1322B5BD7CB00898E2C /* Figtree-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,18 +596,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6487BA562B5D10FF008F7F14 /* BookifySlideInPresentationManager.swift in Sources */,
 				6456C14B2B5BE55600898E2C /* BookifyBookTicketModel.swift in Sources */,
-				6456C14D2B5BE68500898E2C /* BookifyBookTicketSampleData.swift in Sources */,
+				6487BA552B5D10FF008F7F14 /* BookifySlideInPresentationAnimator.swift in Sources */,
+				6456C1642B5BFEE800898E2C /* BookifyTitleWithSubtitleHeaderCell.swift in Sources */,
+				6487BA632B5D3A2C008F7F14 /* BookifyPeopleBookingTicketTableViewCell.swift in Sources */,
+				6456C15F2B5BFBA800898E2C /* BookifyViewExtension.swift in Sources */,
+				644CA0282B5CF93800D03438 /* BookifyDropdrownButtonBarView.swift in Sources */,
 				6456C1242B5BCFE900898E2C /* BookifyHomeViewController.swift in Sources */,
+				6431850D2B5D6433005BBF30 /* BookifyContractors.swift in Sources */,
+				6487BA5A2B5D3066008F7F14 /* BookifyNotificationConstants.swift in Sources */,
 				6456C12B2B5BD57A00898E2C /* BookifyStringConstants.swift in Sources */,
 				6456C13A2B5BDCD000898E2C /* BookifyButtonExtension.swift in Sources */,
 				642FEDDD2B5BB47500A88F7C /* AppDelegate.swift in Sources */,
 				642FEDDF2B5BB47500A88F7C /* SceneDelegate.swift in Sources */,
+				6487BA572B5D10FF008F7F14 /* BookifySlideInPresentationController.swift in Sources */,
+				6487BA5E2B5D3700008F7F14 /* BookifyTitleWithImageHeaderCell.swift in Sources */,
 				6456C1292B5BD55B00898E2C /* BookifyHeightAndWidthConstants.swift in Sources */,
+				6487BA682B5D3A7E008F7F14 /* BookifyCentreLabelCollectionViewCell.swift in Sources */,
+				6456C1702B5C06F800898E2C /* BookifyImageWithTitleCollectionViewCell.swift in Sources */,
 				6456C1452B5BE45B00898E2C /* BookifySelectMovieViewController.swift in Sources */,
+				6456C1562B5BEFFC00898E2C /* BookifyBottomSingleButtonView.swift in Sources */,
 				6456C1492B5BE4B200898E2C /* BookifyRouter.swift in Sources */,
 				6456C1382B5BD97100898E2C /* BookifyFontExtension.swift in Sources */,
+				6456C1742B5C0A6800898E2C /* BookifyEnumConstants.swift in Sources */,
+				6456C15B2B5BFA6C00898E2C /* BookifyTopActionBarView.swift in Sources */,
 				6456C1432B5BE43900898E2C /* BookifySelectLocationViewController.swift in Sources */,
+				6456C14F2B5BEC4B00898E2C /* BookifyBookTicketViewModel.swift in Sources */,
+				64C9F7902B5C1FE30012C49F /* BookifySelectLocationTableViewCell.swift in Sources */,
 				6456C1472B5BE47C00898E2C /* BookifySelectPeopleCountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

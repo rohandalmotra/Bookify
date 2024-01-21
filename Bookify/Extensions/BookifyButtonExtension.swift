@@ -12,7 +12,7 @@ extension UIButton {
     
     func setupRoundButton(withTitle: String, withRadius: CGFloat, buttonSize: BookifyFontSize? = .medium){
         titleLabel?.font = UIFont().BookifyBoldFont(buttonSize?.rawValue ?? BookifyFontSize.small.rawValue)
-        backgroundColor = .bookifySecondary
+        backgroundColor = .bookifyPrimary
         layer.cornerRadius = withRadius
         layer.borderWidth = BookifyHeightWidthConstants.BookifyCommon.cornerRadiusOfRoundButton
         setTitleColor(.bookifyTertiary, for: .normal)
