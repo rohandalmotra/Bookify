@@ -228,14 +228,16 @@ extension BookifySelectPeopleCountViewController{
     
     //functionality on bottom button pressed
     @objc private func bottomActionButtonPressed(){
-        DispatchQueue.main.async { [self] in
-            self.showAlert(title: BookifyStringConstants.bookingConfirmText, message: BookifyStringConstants.getAlertTextOnBookingConfirm(numberOfSeats: viewModel?.selectedNumberOfPeople ?? 0, location: viewModel?.selectedCityName ?? "-", movie: viewModel?.selectedMovieName ?? "-"))
+        DispatchQueue.main.async { [weak self] in
+            BookifyHaptic.addHapticTouch(style: .heavy)
+            self?.showAlert(title: BookifyStringConstants.bookingConfirmText, message: BookifyStringConstants.getAlertTextOnBookingConfirm(numberOfSeats: self?.viewModel?.selectedNumberOfPeople ?? 0, location: self?.viewModel?.selectedCityName ?? "-", movie: self?.viewModel?.selectedMovieName ?? "-"))
         }
     }
     
     //dismissing current ViewController
     @objc private func dismissViewController(){
         viewModel?.collapseMovieSelectionVC = false
+        BookifyHaptic.addHapticTouch(style: .light)
         self.dismiss(animated: true)
     }
     

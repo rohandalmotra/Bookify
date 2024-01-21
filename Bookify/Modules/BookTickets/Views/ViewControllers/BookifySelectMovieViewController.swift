@@ -313,6 +313,7 @@ extension BookifySelectMovieViewController{
     //dismissing current ViewController
     @objc private func dismissViewController(){
         viewModel?.collapseLocationVC = false
+        BookifyHaptic.addHapticTouch(style: .light)
         self.dismiss(animated: true)
     }
     

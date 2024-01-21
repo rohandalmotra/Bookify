@@ -266,7 +266,6 @@ extension BookifySelectLocationViewController{
     //functionality on action button pressed 
     @objc private func actionButtonPressed(){
         dismissViewController()
-        
     }
     
     //functionality on bottom button pressed
@@ -281,6 +280,7 @@ extension BookifySelectLocationViewController{
     
     //dismissing current ViewController
     @objc private func dismissViewController(){
+        BookifyHaptic.addHapticTouch(style: .light)
         self.dismiss(animated: true)
     }
     

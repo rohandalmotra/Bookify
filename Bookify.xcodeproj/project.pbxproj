@@ -13,6 +13,7 @@
 		642FEDE62B5BB47800A88F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE52B5BB47800A88F7C /* Assets.xcassets */; };
 		642FEDE92B5BB47800A88F7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 642FEDE72B5BB47800A88F7C /* LaunchScreen.storyboard */; };
 		6431850D2B5D6433005BBF30 /* BookifyContractors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6431850C2B5D6433005BBF30 /* BookifyContractors.swift */; };
+		643F62892B5D811D006A3DAE /* BookifyHaptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F62882B5D811D006A3DAE /* BookifyHaptic.swift */; };
 		644CA0282B5CF93800D03438 /* BookifyDropdrownButtonBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644CA0272B5CF93800D03438 /* BookifyDropdrownButtonBarView.swift */; };
 		644CA02A2B5CF93F00D03438 /* BookifyDropdrownButtonBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644CA0292B5CF93F00D03438 /* BookifyDropdrownButtonBarView.xib */; };
 		6456C1222B5BCF2D00898E2C /* ColorPalletes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6456C1212B5BCF2D00898E2C /* ColorPalletes.xcassets */; };
@@ -66,6 +67,7 @@
 		642FEDE82B5BB47800A88F7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		642FEDEA2B5BB47800A88F7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6431850C2B5D6433005BBF30 /* BookifyContractors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyContractors.swift; sourceTree = "<group>"; };
+		643F62882B5D811D006A3DAE /* BookifyHaptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyHaptic.swift; sourceTree = "<group>"; };
 		644CA0272B5CF93800D03438 /* BookifyDropdrownButtonBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookifyDropdrownButtonBarView.swift; sourceTree = "<group>"; };
 		644CA0292B5CF93F00D03438 /* BookifyDropdrownButtonBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookifyDropdrownButtonBarView.xib; sourceTree = "<group>"; };
 		6456C1212B5BCF2D00898E2C /* ColorPalletes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalletes.xcassets; sourceTree = "<group>"; };
@@ -157,6 +159,14 @@
 				6431850C2B5D6433005BBF30 /* BookifyContractors.swift */,
 			);
 			path = Contractor;
+			sourceTree = "<group>";
+		};
+		643F62872B5D8106006A3DAE /* Haptic */ = {
+			isa = PBXGroup;
+			children = (
+				643F62882B5D811D006A3DAE /* BookifyHaptic.swift */,
+			);
+			path = Haptic;
 			sourceTree = "<group>";
 		};
 		644CA0262B5CF90800D03438 /* DropDownButtonBar */ = {
@@ -302,6 +312,7 @@
 		6456C1502B5BEF9200898E2C /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				643F62872B5D8106006A3DAE /* Haptic */,
 				6456C1532B5BEFB600898E2C /* Views */,
 			);
 			path = Reusable;
@@ -604,6 +615,7 @@
 				6456C15F2B5BFBA800898E2C /* BookifyViewExtension.swift in Sources */,
 				644CA0282B5CF93800D03438 /* BookifyDropdrownButtonBarView.swift in Sources */,
 				6456C1242B5BCFE900898E2C /* BookifyHomeViewController.swift in Sources */,
+				643F62892B5D811D006A3DAE /* BookifyHaptic.swift in Sources */,
 				6431850D2B5D6433005BBF30 /* BookifyContractors.swift in Sources */,
 				6487BA5A2B5D3066008F7F14 /* BookifyNotificationConstants.swift in Sources */,
 				6456C12B2B5BD57A00898E2C /* BookifyStringConstants.swift in Sources */,

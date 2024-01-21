@@ -63,6 +63,7 @@ extension BookifyHomeViewController{
 // MARK: - Adding Functionality on clicks or taps
 extension BookifyHomeViewController{
     @objc private func startButtonClicked() {
+        BookifyHaptic.addHapticTouch(style: .light)
         let viewController = BookifyRouter.ViewController.getSelectLocationViewController()
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true, completion: nil)
